@@ -54,9 +54,8 @@
         }
       };
       document.querySelector("#btn").addEventListener("click", function () {
-        handleWindowPage(
-          "https://www.gogopay6868.com/pay?tradeno=6ec4e680f6ed484b8311acb869e01010&ui=0",
-          "_blank"
+        window.Android.openWebView(
+          "https://www.gogopay6868.com/pay?tradeno=6ec4e680f6ed484b8311acb869e01010&ui=0"
         );
         window.Android.goldPay(
           "https://www.gogopay6868.com/pay?tradeno=6ec4e680f6ed484b8311acb869e01010&ui=0"
