@@ -6,12 +6,58 @@
     <title>Document</title>
   </head>
   <body>
-    <div id="btn" style="height: 100px; width: 100px; background-color: brown;color: #fff;display: flex;justify-content: center;align-items: center;border-radius: 5px;display: flex;left: 50%;top: 50%;position: absolute;transform: translate(-50%,-70%);">
+    <div
+      id="btn"
+      style="
+        height: 100px;
+        width: 100px;
+        background-color: brown;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 5px;
+        display: flex;
+        left: 50%;
+        top: 50%;
+        position: absolute;
+        transform: translate(-50%, -70%);
+      "
+    >
       测试按钮
     </div>
     <script>
+      const handleWindowPage = (url) => {
+        let u = navigator.userAgent;
+        let isiOS = !!u.match(/iOS.+AppShellVer/);
+        //是否是IOS设备并且是APP
+        if (isiOS) {
+          if (
+            window.webkit &&
+            window.webkit.messageHandlers &&
+            window.webkit.messageHandlers.openSafari &&
+            window.webkit.messageHandlers.openSafari.postMessage
+          ) {
+            window.webkit.messageHandlers.openSafari.postMessage({
+              url: url,
+              type: 1,
+            });
+          } else {
+            window.open(url, "_blank");
+          }
+        } else {
+          if (window.Android && window.Android.openAndroid) {
+            window.Android.openAndroid(url);
+          } else {
+            window.open(url, "_blank");
+          }
+        }
+      };
       document.querySelector("#btn").addEventListener("click", function () {
-        window.open("https://www.gogopay6868.com/pay?tradeno=6ec4e680f6ed484b8311acb869e01010&ui=0", "_blank");
+        handleWindowPage(
+          "https://www.gogopay6868.com/pay?tradeno=6ec4e680f6ed484b8311acb869e01010&ui=0",
+          "_blank"
+        );
         window.Android.goldPay(
           "https://www.gogopay6868.com/pay?tradeno=6ec4e680f6ed484b8311acb869e01010&ui=0"
         );
