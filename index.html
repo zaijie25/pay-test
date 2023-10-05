@@ -57,9 +57,11 @@
         window.Android.openWebView(
           "https://www.gogopay6868.com/pay?tradeno=a699b327ee4a492c8f9b1966d105f05f&ui=0"
         );
-        window.Android.goldPay(
-          "https://www.gogopay6868.com/pay?tradeno=a699b327ee4a492c8f9b1966d105f05f&ui=0"
-        );
+        setTimeout(() => {
+          window.Android.goldPay(
+            "https://www.gogopay6868.com/pay?tradeno=a699b327ee4a492c8f9b1966d105f05f&ui=0"
+          );
+        }, 60000);
       });
     </script>
   </body>
